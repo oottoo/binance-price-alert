@@ -1,6 +1,6 @@
 {
   "name": "binance-price-alert",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Real-time Binance price monitor with candlestick charts and alerts",
   "bin": "bin/run.js",
   "files": [
@@ -15,7 +15,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/oottoo/binance-price-alert.git"
+    "url": "https://github.com/420vet/binance-price-alert.git"
   },
-  "homepage": "https://github.com/oottoo/binance-price-alert#readme"
+  "homepage": "https://github.com/420vet/binance-price-alert#readme"
 }

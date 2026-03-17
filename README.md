@@ -31,7 +31,7 @@ Open **http://localhost:8000** in your browser.
 ## Run from source
 
 ```bash
-git clone https://github.com/oottoo/binance-price-alert.git
+git clone https://github.com/420vet/binance-price-alert.git
 cd binance-price-alert
 pip install -r requirements.txt
 python main.py

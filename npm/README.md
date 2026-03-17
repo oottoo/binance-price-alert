@@ -49,7 +49,7 @@ All settings can also be changed live from the **⚙ Settings** panel in the UI.
 Requires Python 3.11+:
 
 ```bash
-git clone https://github.com/oottoo/binance-price-alert.git
+git clone https://github.com/420vet/binance-price-alert.git
 cd binance-price-alert
 pip install -r requirements.txt
 python main.py
