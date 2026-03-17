@@ -16,10 +16,13 @@ jobs:
         include:
           - os: windows-latest
             artifact: trade-alert-windows.exe
+            bin: dist/trade-alert.exe
           - os: macos-latest
             artifact: trade-alert-macos
+            bin: dist/trade-alert
           - os: ubuntu-latest
             artifact: trade-alert-linux
+            bin: dist/trade-alert
 
     runs-on: ${{ matrix.os }}
 
@@ -34,15 +37,15 @@ jobs:
         run: pip install -r requirements.txt pyinstaller
 
       - name: Build
-        run: pyinstaller trade_alert.spec
+        run: python -m PyInstaller trade_alert.spec
 
-      - name: Rename (Windows)
-        if: runner.os == 'Windows'
-        run: mv dist/trade-alert.exe dist/trade-alert-windows.exe
+      - name: Rename binary
+        shell: bash
+        run: mv ${{ matrix.bin }} dist/${{ matrix.artifact }}
 
-      - name: Rename (non-Windows)
+      - name: Mark executable (non-Windows)
         if: runner.os != 'Windows'
-        run: mv dist/trade-alert dist/${{ matrix.artifact }}
+        run: chmod +x dist/${{ matrix.artifact }}
 
       - uses: actions/upload-artifact@v4
         with:
@@ -60,7 +63,8 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           path: artifacts
+          merge-multiple: true
 
       - uses: softprops/action-gh-release@v2
         with:
-          files: artifacts/**/*
+          files: artifacts/*
