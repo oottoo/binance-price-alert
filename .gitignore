@@ -12,3 +12,5 @@ build/
 .idea/
 .claude/
 check_pairs.py
+npm/bin/trade-alert*.exe
+trade_alert.spec
